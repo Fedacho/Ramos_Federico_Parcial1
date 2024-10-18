@@ -68,7 +68,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
 ### 3. **Gastronomía** (Subclase de Servicio)
 
 - **Atributos Específicos**:
-    - `gastronomia`: Tipo de servicio gastronómico (ej. desayuno, almuerzo).
+    - `gastronomia`: Tipo de servicio gastronómico (tipo de comidas).
     - `precio`: Precio del servicio gastronómico.
     - `diaSemDesc`: Día de la semana en que se aplica el descuento.
 - **Métodos**:
