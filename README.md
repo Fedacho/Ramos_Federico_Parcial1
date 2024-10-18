@@ -50,7 +50,7 @@ El proyecto está compuesto por las siguientes clases y subclases:
 ### 1. **Servicio** (Clase Abstracta)
 
 - **Atributos**:
-    - `codServicio`: Código del servicio (6 caracteres, con validación).
+    - `codServicio`: Código del servicio (6 caracteres, con validación). Si codigo es invalido ( distinto a 6 caracteres ) ejecuta ExceptionServicio
     - `porcentajeDescuento`: Porcentaje de descuento aplicable al servicio.
     - `enPromocion`: Indica si el servicio está en promoción.
 - **Métodos Abstractos**:
@@ -75,18 +75,22 @@ El proyecto está compuesto por las siguientes clases y subclases:
     - `calcularPrecioFinal(LocalDate dia)`: Aplica el porcentaje de descuento si el día corresponde al día de descuento
       y si está en promoción.
 
-### 4. **Sistema** (Clase Principal)
+### 4. **ExceptionServicio** (Subclase de Exception)
+    -Esta excepcion esta creada para todos los casos en los que hay algun problema ya sea 
+     con la creacion de un servicio, con su agregado alguna lista o con su busqueda en alguna lista.     
+
+### 5. **Sistema** (Clase Principal)
 
 - **Atributos**:
     - `lstServicio`: Lista de servicios disponibles (hospedaje y gastronomía).
 - **Métodos**:
-    - `traerServicio(String codServicio)`: Retorna un servicio específico según su código.
-    - `traerServicio(boolean enPromocion)`: Retorna una lista de servicios que están en promoción.
+    - `traerServicio(String codServicio)`: Retorna un servicio específico según su código. Si el servicio no existe en el sistema ejecuta ExceptionServicio. 
+    - `traerServicio(boolean enPromocion)`: Retorna una lista de servicios que están en promoción. 
     - `traerServicio(boolean enPromocion, LocalDate dia)`: Retorna una lista de servicios en promoción y que apliquen
       descuentos según la fecha.
     -
     `agregarGastronomia(String codServicio, double porcentajeDescuento, boolean enPromocion, String gastronomia, double precio, int diaSemDesc)`:
-    Agrega un servicio de gastronomía al sistema.
+    Agrega un servicio de gastronomía al sistema. Si el servicio ya existe en el sistema ejecuta ExceptionServicio.
     -
     `agregarHospedaje(String codServicio, double porcentajeDescuento, boolean enPromocion, String hospedaje, double precioPorNoche)`:
-    Agrega un servicio de hospedaje al sistema.
+    Agrega un servicio de hospedaje al sistema. Si el servicio ya existe en el sistema ejecuta ExceptionServicio.
